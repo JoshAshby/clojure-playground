@@ -2,19 +2,19 @@
 	(:gen-class))
 
 (defn not-auto-prime[number]
+	"Checks if number is automatically prime or 1. Does this by dividing it by 2,3,5 if that fails then it returns false"
 	(if (= number 1)
 		(println "Why do you want to know if 1 is prime, you crazy monkey!")
 		(doseq [i [2 3 5]]
 			(if (= (rem number i) 0)
 				(println (str "Not prime, multiple of " i))
-				nil
 			)
 		)
 	)
 )
 
 (defn prime-calc[number]
-	"Calculates if the number is prime by looking at all of the numbers between 3 and the square root of the number.
+	"Calculates if the number is prime by looking at all of the numbers between 7 and the square root of the number.
 	This could be improved by skipping over numbers which are divisible by 2 or 3 or 5 already."
 	(def s 
 		(if (<= 8 number)
@@ -25,11 +25,6 @@
 
 	(loop [i 6]
 		(when (<= i s)
-			(doseq [t [2 3 5]]
-				(if (= (rem i t) 0)
-					(recur(inc i))
-				)
-			)
 			(if (= (= (rem number i) 0) false)
 				(if (= i s)
 					(println "Prime")
