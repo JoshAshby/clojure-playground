@@ -1,0 +1,34 @@
+(ns csv_basic.core
+  (:gen-class)
+  (:use (incanter core io datasets)))
+(defn readCSV [datafileName]
+  (def data (read-dataset datafileName :header true :delim \space)))
+(readCSV "datafile.csv")
+(data)
+(view data)
+(use 'seesaw.core)
+readCSV
+(readCSV "datafile.csv")
+data
+(xy-plot data)
+(xy-plot :data data)
+(with-data)
+(with-data data (xy-plot)
+)
+(with-data data (xy-plot))
+(view (with-data data (xy-plot)))
+(use (seesaw core))
+(:use (seesaw core))
+(use 'seesaw.core)
+(use 'seesaw.core :as seesaw)
+(use '[seesaw.core :as seesaw])
+(require '[seesaw.core :as seesaw])
+seesaw
+(require 'seesaw.core)
+seesaw = (require 'seesaw.core)
+(use '[seesaw.core :only [frame invoke-later pack! show!]])
+frame
+(def f (frame :title "Chart Test" :content (with-data data (xy-plot)) (invoke-later (-> frame pack! show!))))
+(def f (frame :title "Chart Test" :content (with-data data (xy-plot))))
+(view (with-data data (xy-plot)))
+(def f (frame :title "Chart Test" :content (view (with-data data (xy-plot)))))
